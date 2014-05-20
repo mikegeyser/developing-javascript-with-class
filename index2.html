@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <!--<script src="vehicles.js"></script>-->
+    <script src="traceur.js"></script>
+    <script src="bootstrap.js"></script>
+
+    <script type="module">
+            export class Vehicle {
+                constructor() {
+                    console.log("Vehicle constructor called.");
+                }
+
+                drive()
+                {
+                    console.log("Vehicle drive called.");
+
+                    return "vroom!";
+                }
+            }
+
+            export class Car extends Vehicle
+            {
+                constructor() {
+                    console.log("Car constructor called.");
+
+                    super();
+                }
+
+                drive() {
+                    console.log("Car drive called.");
+
+                    return "Cars go " + super();
+                }
+            }
+        
+    </script>
+    
+    <script type="module">
+        import {Vehicle, Car} from 'Vehicles'
+
+        var car = new Vehicles.Car();
+        alert(car.drive());
+    
+    </script>
+</head>
+<body>
+
+</body>
+</html>
