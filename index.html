@@ -27,16 +27,27 @@
                 src: url('fonts/FONTLERO.ttf');
             }
 
-            div.reveal div.corner {
-                background: white url(images/corner.jpg) no-repeat top center;
-            }
-
             div.reveal div.right {
-                position: relative;
+                position: absolute;
                 right: 0;
                 bottom: 0;
-                height: 100px;
-                width: 100px;
+                height: 300px;
+                width: 300px;
+                background: url(images/corner-right.png) no-repeat bottom right;
+            }
+
+            div.reveal div.left {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                height: 300px;
+                width: 300px;
+                background: url(images/corner-left.png) no-repeat bottom left;
+            }
+
+            div.reveal aside.controls {
+                right: 25px;
+                bottom: 15px;
             }
 
 			div.reveal {
