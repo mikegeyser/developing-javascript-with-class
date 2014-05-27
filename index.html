@@ -130,25 +130,109 @@
 					<h1>Overview</h1>
 					<ul>
 						<li>Introduction</li>
-						
+					    <li>Status Quo</li>
+					    <li>ECMAScript 6</li>
+                        <li>Traceur</li>
 					</ul>
 				</section>
+                
+                <section>
+                    <section>
+                        <h1>Status Quo</h1>
 
+                        <i>How do we write OO Javascript today?</i>
+                    </section>
+
+                    <section>
+                        <h1>Class definition</h1>
+
+                        <pre><code>
+    var Model = function(name, options) {
+        this.name = name;
+        this.options = options;
+    };
+     
+    var someModel = new Model("Some model", { option: 1 });
+					</code></pre>
+
+                        <i class="fragment">So basically just a function..</i>
+
+                    </section>
+
+                    <section>
+                        <h1>Namespace</h1>
+
+                        <pre><code>
+    (function(namespace){
+        var model = function() { };
+     
+        namespace.Model = model;
+    })(window.namespace = window.namespace || {});
+					</code></pre>
+
+                        <i class="fragment">So basically just a function..</i>
+
+                    </section>
+
+                    <section>
+                        <h1>Inheritence</h1>
+
+                        <pre><code>
+    var Parent = function() { };
+    
+    var Child = function() { };
+    Child.prototype = new Parent(); // wut?
+                            
+    var child = new Child();
+					</code></pre>
+
+                        <i class="fragment">I just.. I don't even..</i>
+                        <br />
+                        <i class="fragment">(This is usually where people give up on OO)</i>
+
+                    </section>
+
+                    <section>
+                        <h1>Lipstick on a pig</h1>
+
+                        <pre><code>
+    var Parent = function() { };
+    
+    var Child = $.extend({}, Parent);
+    // or
+    var Child = Parent.subclass({});
+    // or
+    var Child = beget(Parent, {});
+    // and they all pretty much do
+    _child.prototype = _parent.prototype;
+    return new _child();
+					</code></pre>
+
+                        <i>A million different variants to facilitate the copying.</i>
+                        <br/><br />
+                        <i>But no standard way to make inheritence not suck.</i>
+                    </section>
+                    <section>
+                        <h1>Method overriding</h1>
+
+                        <pre><code>
+    var Child = function() { 
+        // Constructor
+        Parent.prototype.call(this, []);
+    };
+                            
+    Child.drive = function() {
+        // Method
+        Parent.prototype.drive.apply(this, []);
+    };
+					</code></pre>
+
+                        <i>Explicitly changing the scope of 'this'.</i>
+                        <br /><br />
+                        <i class="fragment">(So basically a hack.)</i>
+                    </section>
+                </section>
 				
-				<section>
-					<h1>Sample code</h1>
-
-					<pre><code>
- <input data-bind="value: name" value="Joe Soap" />
-					</code></pre>
-					<pre><code>
- var model = {
- 	name: "Joe Soap"
- };
- 
-					</code></pre>
-				</section>
-
 				
 
 				<section>
