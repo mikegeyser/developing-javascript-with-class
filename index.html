@@ -66,8 +66,8 @@
             }
 
             div.reveal h2 {
-                font-family: "FontleroyBrown", "Times New Roman", Serif;
-                font-size: 55px;
+                /*font-family: "FontleroyBrown", "Times New Roman", Serif;*/
+                font-size: 45px;
                 margin-bottom: 40px;
             }
 
@@ -103,6 +103,11 @@
 			.table-group div {
 				margin: 5px;
 			}
+
+            div.reveal ul li b {
+                width: 200px;
+                display: inline-block;
+            }
 		</style>
 	</head>
 
@@ -140,7 +145,7 @@
                     <section>
                         <h1>Status Quo</h1>
 
-                        <i>How do we write OO Javascript today?</i>
+                        <p>How do we write OO Javascript today?</p>
                     </section>
 
                     <section>
@@ -155,7 +160,7 @@
     var someModel = new Model("Some model", { option: 1 });
 					</code></pre>
 
-                        <i class="fragment">So basically just a function..</i>
+                        <p class="fragment">So, basically just a function..</p>
 
                     </section>
 
@@ -170,12 +175,12 @@
     })(window.namespace = window.namespace || {});
 					</code></pre>
 
-                        <i class="fragment">So basically just a function..</i>
+                        <p class="fragment">So, basically just a function..</p>
 
                     </section>
 
                     <section>
-                        <h1>Inheritence</h1>
+                        <h1>Inheritance</h1>
 
                         <pre><code>
     var Parent = function() { };
@@ -186,9 +191,9 @@
     var child = new Child();
 					</code></pre>
 
-                        <i class="fragment">I just.. I don't even..</i>
+                        <p class="fragment">I just.. I don't even..</p>
                         <br />
-                        <i class="fragment">(This is usually where people give up on OO)</i>
+                        <p class="fragment">(This is usually where people give up on OO)</p>
 
                     </section>
 
@@ -208,9 +213,9 @@
     return new _child();
 					</code></pre>
 
-                        <i>A million different variants to facilitate the copying.</i>
-                        <br/><br />
-                        <i>But no standard way to make inheritence not suck.</i>
+                        <p>A million different variants to facilitate the copying.</p>
+                        <br />
+                        <p>But no standard way to make inheritance not suck.</p>
                     </section>
                     <section>
                         <h1>Method overriding</h1>
@@ -218,24 +223,185 @@
                         <pre><code>
     var Child = function() { 
         // Constructor
-        Parent.prototype.call(this, []);
+        Parent.call(this, []);
     };
                             
-    Child.drive = function() {
+    Child.prototype.someMethod = function() {
         // Method
-        Parent.prototype.drive.apply(this, []);
+        Parent.prototype.someMethod.apply(this, []);
     };
 					</code></pre>
 
-                        <i>Explicitly changing the scope of 'this'.</i>
-                        <br /><br />
-                        <i class="fragment">(So basically a hack.)</i>
+                        <p>Explicitly changing the scope of 'this'.</p>
+                        <br />
+                        <p class="fragment">(So, basically a hack.)</p>
+                    </section>
+                    
+                    <section>
+                        <h1>To summarise</h1>
+
+                        <ul>
+                            <li><b>Class:</b> an instantiated function</li>
+                            <li><b>Namespace:</b> an immediately-invoked function</li>
+                            <li><b>Inheritance:</b> the stuff nightmares are prototyped from</li>
+                            <li><b>Overriding:</b> a hack involving channging 'this'</li>
+                        </ul>
+                    </section>
+                    
+                    <section>
+                        <h1>We do this every day...</h1>
+                        <br />
+                        <h2>(And yet we wonder why people don't take javascript seriously.)</h2>
                     </section>
                 </section>
 				
-				
+			    <section>
+			        <h1>Intermission</h1>
+			        <h2>In which we wait for someone to shout:</h2>
+			        <br/>
+			        <div class="fragment">
+			            <blockquote>
+			                "This is why you should favour composition over inheritance!"
+			            </blockquote>
 
-				<section>
+                        <img src="images/trollface.png" />
+			        </div>
+
+			    </section>
+                
+			    <section>
+			        <section>
+			            <h1>ECMA Script 6</h1>
+			            <br />
+			            <h2>Code-Name "Harmony"</h2>
+			        </section>
+
+			        <section>
+			            <h1>Class definition</h1>
+
+			            <pre><code>
+    class Model {
+        constructor(){
+            this.name = name;
+            this.options = options;
+        }
+    };
+     
+    var someModel = new Model("Some model", { option: 1 });
+					</code></pre>
+
+			            <p>Explicit class declaration.</p>
+			            <br />
+			            <p>Explicit constructor definition.</p>
+			            <br />
+			            <p>Same usage.</p>
+			        </section>
+
+			        <section>
+			            <h1>Modules</h1>
+
+			            <pre><code>
+    // module1.js
+    export class Model {
+    }
+                            
+    class PrivateModel {
+    }
+                 
+    // module2.js           
+    import { Model } from 'module1.js'
+					</code></pre>
+
+			            <p>Namespacing is a part of the problem, not the solution.</p>
+
+			        </section>
+
+			        <section>
+			            <h1>Modules</h1>
+
+			            <p>Explicit module definition.</p>
+			            <br />
+			            <p>Allows for module-localised classes.</p>
+			            <br />
+			            <p>Module exports can't be modified.</p>
+			            <br />
+			            <p>Deferred initialisation</p>
+			        </section>
+
+			        <section>
+			            <h1>Inheritance</h1>
+
+			            <pre><code>
+    class Parent {
+    }
+                                      
+    class Child extends Parent {
+    }
+                            
+    var child = new Child();
+					</code></pre>
+
+			            <p>Sane inheritance syntax.</p>
+			            <br />
+			            <p>Still prototypal inheritance under the hood.</p>
+			        </section>
+
+			        <section>
+			            <h1>Method overriding</h1>
+
+			            <pre><code>
+    class Child extends Parent {
+        constructor() { 
+            super();
+        }
+                            
+        someMethod () {
+            super();
+        }
+    }
+					</code></pre>
+
+			            <p>Sane overriding syntax.</p>
+			            <br />
+			            <p>No need for explicit handling of 'this'.</p>
+			        </section>
+
+			        <section>
+			            <h1>To summarise</h1>
+			            <ul>
+			                <li>All new language features.</li>
+			                <li>Simple, unambiguous syntax.</li>
+			                <li>Still prototypal inheritance.</li>
+			            </ul>
+			        </section>
+                    
+			        <section>
+			            <h1>That sounds great, when can I start?</h1>
+			            <p class="fragment">Officially.. Well.. No one knows.</p>
+			        </section>
+			    </section>
+                
+			    <section>
+			        <section>
+                        <h1>(Dramatic entrance. Stage left.)</h1>
+			            <img src="images/traceur.png" />    
+                        <h2>google traceur compiler</h2>
+			        </section>
+			        
+			        <section>
+			            <h1>Traceur</h1>
+                        
+			            
+			            <p>Google project</p>
+                        <br />
+			            <p>JS.next to JS.today compiler</p>
+                        <br />
+			            <p>Runtime as well as 'build' time</p>
+                        <br />
+			        </section>
+			    </section>
+
+			    <section>
 					<h1>Summary</h1>
 
 					<ul>
