@@ -90,23 +90,24 @@
 
 			div.reveal pre,
 			div.reveal ul > li {
-				margin-bottom: 30px;
+				margin-bottom: 45px;
 			}
-
-			.table-group div,
-			.table-group div > span {
-				font-size: 30px;
-				float: left;
-				width: 300px;
-			}
-
-			.table-group div {
-				margin: 5px;
-			}
+            div.reveal ul {
+                list-style-type: none;
+                text-align: center;
+            }
 
             div.reveal ul li b {
                 width: 200px;
                 display: inline-block;
+            }
+
+            div.reveal section.frank section {
+                margin-top: -150px;
+            }
+
+            div.reveal section.frank img {
+                margin-top: -100px;
             }
 		</style>
 	</head>
@@ -190,11 +191,11 @@
                             
     var child = new Child();
 					</code></pre>
-
-                        <p class="fragment">I just.. I don't even..</p>
-                        <br />
-                        <p class="fragment">(This is usually where people give up on OO)</p>
-
+                        
+                        <ul>
+                            <li class="fragment">I just.. I don't even..</li>
+                            <li class="fragment">(This is usually where people give up on OO)</li>
+                        </ul>
                     </section>
 
                     <section>
@@ -212,10 +213,11 @@
     _child.prototype = _parent.prototype;
     return new _child();
 					</code></pre>
-
-                        <p>A million different variants to facilitate the copying.</p>
-                        <br />
-                        <p>But no standard way to make inheritance not suck.</p>
+                        
+                        <ul>
+                            <li>A million different variants to facilitate the copying.</li>
+                            <li>But no standard way to make inheritance not suck.</li>
+                        </ul>
                     </section>
                     <section>
                         <h1>Method overriding</h1>
@@ -231,10 +233,11 @@
         Parent.prototype.someMethod.apply(this, []);
     };
 					</code></pre>
-
-                        <p>Explicitly changing the scope of 'this'.</p>
-                        <br />
-                        <p class="fragment">(So, basically a hack.)</p>
+                        
+                        <ul>
+                            <li>Explicitly changing the scope of 'this'.</li>
+                            <li class="fragment">(So, basically a hack.)</li>
+                        </ul>
                     </section>
                     
                     <section>
@@ -289,12 +292,12 @@
      
     var someModel = new Model("Some model", { option: 1 });
 					</code></pre>
-
-			            <p>Explicit class declaration.</p>
-			            <br />
-			            <p>Explicit constructor definition.</p>
-			            <br />
-			            <p>Same usage.</p>
+                        
+                        <ul>
+                            <li>Explicit class declaration.</li>
+                            <li>Explicit constructor definition.</li>
+                            <li>Same usage.</li>
+                        </ul>
 			        </section>
 
 			        <section>
@@ -318,14 +321,13 @@
 
 			        <section>
 			            <h1>Modules</h1>
-
-			            <p>Explicit module definition.</p>
-			            <br />
-			            <p>Allows for module-localised classes.</p>
-			            <br />
-			            <p>Module exports can't be modified.</p>
-			            <br />
-			            <p>Deferred initialisation</p>
+                        
+                        <ul>
+                            <li>Explicit module definition.</li>
+                            <li>Allows for module-localised classes.</li>
+                            <li>Module exports can't be modified.</li>
+                            <li>Deferred initialisation</li>
+                        </ul>
 			        </section>
 
 			        <section>
@@ -360,10 +362,11 @@
         }
     }
 					</code></pre>
-
-			            <p>Sane overriding syntax.</p>
-			            <br />
-			            <p>No need for explicit handling of 'this'.</p>
+                        
+                        <ul>
+                            <li>Sane overriding syntax.</li>
+                            <li>No need for explicit handling of 'this'.</li>
+                        </ul>
 			        </section>
 
 			        <section>
@@ -381,40 +384,95 @@
 			        </section>
 			    </section>
                 
-			    <section>
-			        <section>
+                <section>
+                    <section>
                         <h1>(Dramatic entrance. Stage left.)</h1>
-			            <img src="images/traceur.png" />    
+                        <img src="images/traceur.png" />
                         <h2>google traceur compiler</h2>
-			        </section>
-			        
-			        <section>
-			            <h1>Traceur</h1>
+                    </section>
+
+                    <section>
+                        <h1>Traceur</h1>
+
+                        <ul>
+                            <li>Google project</li>
+                            <li>JS.next to JS.today compiler</li>
+                            <li>Runtime as well as 'build' time</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h1>Traceur</h1>
+
+                        <pre><code>
+    <script src="traceur.js"></script>
+    <script src="bootstrap.js"></script>
+
+    <script type="module">
+        class Model {
+            constructor(){
+            }
+        }
+        
+        var model = new Model();
+    </script>
+					    </code></pre>
+                        <ul>
+                            <li>Reference compiler and bootstrapper.</li>
+                            <li>Script type 'module'</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h1>Enough! Show me the code...</h1>
+                    </section>
+                    
+                    <section>
+                        <h1>Precompile</h1>
                         
-			            
-			            <p>Google project</p>
-                        <br />
-			            <p>JS.next to JS.today compiler</p>
-                        <br />
-			            <p>Runtime as well as 'build' time</p>
-                        <br />
+                        <pre><code>
+    $ npm install traceur
+    $ traceur --out output/module.js --script/module.js
+					    </code></pre>
+                        <p>Grunt, gulp or build server.</p>
+                    </section>
+                </section>
+                
+			    <section class="frank">
+			        <img src="images/drfranknfurter.jpg" />
+
+			        <section></section>
+                    <section>
+                        <h1>So... This is all just syntactical sugar, right?</h1>
+                    </section>
+			        <section>
+			            <h1>Is this going to change?</h1>
+			        </section>
+			        <section>
+			            <h1>Isn't this a lot like CoffeeScript / TypeScript / Dart?</h1>
+			        </section>
+			        <section>
+			            <h1>Is traceur really ready for production use?</h1>
 			        </section>
 			    </section>
 
 			    <section>
-					<h1>Summary</h1>
+			        <section>
+                        <h1>Summary</h1>
 
-					<ul>
-						<li>Stuff</li>
-					</ul>
+                        <ul>
+                            <li>Simple, unambiguous syntax.</li>
+                            <li>Same prototypal behaviour.</li>
+                            <li>Progressive enhancement with Traceur.</li>
+                        </ul>
 
-					<br/>
-					<br/>
-					<br/>
-					<h2>Questions?</h2>
-					<h2>michaelg@bbd.co.za</h2>
-				</section>
-
+                        <br />
+                        <br />
+                        <br />
+                        <h2>Questions?</h2>
+                        <h2>@mikegeyser</h2>
+                    </section>
+			    </section>
 			</div>
 
 		</div>
