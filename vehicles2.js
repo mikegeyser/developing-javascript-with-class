@@ -49,3 +49,5 @@ class Scooter extends Vehicle
         return "Meep. Meep.";
     }
 }
+
+export { Car, Truck, Scooter }
