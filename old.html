@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Javascript vNow</title>
+    <link href="content/css/site.css" rel="stylesheet" />
+    <script src="lib/jquery-1.11.1.min.js"></script>
+
+    <script src="vehicles.js"></script>
+    <script src="vehiclefactory.js"></script>
+
+    <script type="text/javascript">
+        app.VehicleFactory.build([
+            app.Car,
+            app.Truck,
+            app.Scooter
+        ]);
+    </script>
+</head>
+<body>
+    <div class="factory"></div>
+    <div class="parking"></div>
+</body>
+</html>
