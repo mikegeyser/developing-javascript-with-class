@@ -11,11 +11,14 @@
     <script src="vehiclefactory.js"></script>
 
     <script type="text/javascript">
-        app.VehicleFactory.build([
-            app.Car,
-            app.Truck,
-            app.Scooter
-        ]);
+        System.import('vehicles2', {})
+            .then(function (module) {
+                app.VehicleFactory.build([
+                    module.Car,
+                    module.Truck,
+                    module.Scooter
+                ]);
+            });
     </script>
 </head>
 <body>
