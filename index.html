@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
 
 		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <link rel="stylesheet" href="lib/css/custom.css">
 
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<script>
@@ -82,11 +82,12 @@
                 font-family: "FontleroyBrown", "Times New Roman", Serif;
             }
 
-			div.reveal img.twitter, 
-			div.reveal img.github {
-				top: 30px;
-				position: relative;
-			}
+            div.reveal img.twitter,
+            div.reveal img.github {
+                top: 30px;
+                position: relative;
+                padding-right: 15px;
+            }
 
 			div.reveal pre,
 			div.reveal ul > li {
@@ -169,11 +170,11 @@
                         <h1>Namespace</h1>
 
                         <pre><code>
-    (function(namespace){
+    (function(ns){
         var model = function() { };
      
-        namespace.Model = model;
-    })(window.namespace = window.namespace || {});
+        ns.Model = model;
+    })(window.ns = window.ns || {});
 					</code></pre>
 
                         <p class="fragment">So, basically just a function..</p>
@@ -205,10 +206,13 @@
     var Parent = function() { };
     
     var Child = $.extend({}, Parent);
+
     // or
     var Child = Parent.subclass({});
+
     // or
     var Child = beget(Parent, {});
+
     // and they all pretty much do
     _child.prototype = _parent.prototype;
     return new _child();
@@ -225,7 +229,7 @@
                         <pre><code>
     var Child = function() { 
         // Constructor
-        Parent.call(this, []);
+        Parent.call(this);
     };
                             
     Child.prototype.someMethod = function() {
@@ -470,7 +474,9 @@
                         <br />
                         <br />
                         <h2>Questions?</h2>
-                        <h2>@mikegeyser</h2>
+			            <h2>
+			                <img class="twitter" src="images/twitter.png" />@mikegeyser
+			            </h2>
                     </section>
 			    </section>
 			</div>
