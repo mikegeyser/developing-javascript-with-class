@@ -36,3 +36,16 @@ class Truck extends Vehicle
         return super();
     }
 }
+
+class Scooter extends Vehicle
+{
+    constructor()
+    {
+        super("scooter");
+    }
+
+    drive()
+    {
+        return "Meep. Meep.";
+    }
+}
