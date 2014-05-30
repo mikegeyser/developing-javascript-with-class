@@ -1,41 +1,52 @@
 ﻿(function (app) {
-    // Vehicle
-    var vehicle = function () {
-
+    // Vehicle (base class)
+    var vehicle = function (type) {
+        this.type = type;
     };
 
     vehicle.prototype.drive = function () {
-        return "vroooom!";
+        return "Vroooom!";
     };
 
     app.Vehicle = vehicle;
 
     // Car
-    var car = function (passengers) {
-        app.Vehicle.call(this);
+    var car = function () {
+        app.Vehicle.call(this, ["car"]);
     };
 
     car.prototype = new app.Vehicle(); //eww
 
     car.prototype.drive = function () {
-        var baseDrive = app.Vehicle.prototype.drive.apply(this, []);
-        return "Cars go " + baseDrive;
+        return "Nyeeeeeow!";
     }
 
     app.Car = car;
 
     // Truck
     var truck = function () {
-        app.Vehicle.call(this);
+        app.Vehicle.call(this, ["truck"]);
     }
 
     truck.prototype = new app.Vehicle();
 
     truck.prototype.drive = function () {
-        var baseDrive = app.Vehicle.prototype.drive.apply(this, []);
-        return "Trucks go " + baseDrive;
+        return app.Vehicle.prototype.drive.apply(this, []);
     }
 
     app.Truck = truck;
+
+    // Scooter
+    var scooter = function () {
+        app.Vehicle.call(this, ["scooter"]);
+    }
+
+    scooter.prototype = new app.Vehicle();
+
+    scooter.prototype.drive = function () {
+        return "Meep. Meep.";
+    }
+
+    app.Scooter = scooter;
 
 })(window.app = window.app || {});

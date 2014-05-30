@@ -4,7 +4,7 @@
 
     drive()
     {
-        return "vroom!";
+        return "vroooom!";
     }
 }
 
@@ -15,11 +15,21 @@ class Car extends Vehicle
     }
 
     drive() {
-        var base = super();
-
-        return "Cars go " + base;
+        return "Cars go " + super();
     }
 }
 
-var car = new Car();
-alert(car.drive());
+class Truck extends Vehicle
+{
+    constructor()
+    {
+        super();
+    }
+
+    drive()
+    {
+        return "Trucks go " + super();
+    }
+}
+
+export { Car, Truck }

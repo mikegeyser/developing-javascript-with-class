@@ -1,0 +1,45 @@
+﻿body {
+    margin-top: 100px;
+}
+
+div {
+    
+    border: 1px solid black;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 8px 8px 3px lightgray;
+}
+
+.factory {
+    float: left;
+    clear: right;
+    background: url(../images/factory.png) no-repeat bottom center;
+    width: 148px;
+    height: 148px;
+}
+
+.parking {
+    border: 0;
+    box-shadow: 0 0 0;
+}
+div.car,
+div.truck,
+div.scooter {
+    margin-left: 250px;
+    width: 84px;
+    height: 84px;
+    /*float: left;*/
+}
+
+.car {
+    background: url(../images/car.png) no-repeat bottom center;
+}
+
+.truck {
+    background: url(../images/truck.png) no-repeat bottom center;
+}
+
+.scooter {
+    background: url(../images/scooter.png) no-repeat bottom center;
+}

@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="traceur.js"></script>
+    <script src="bootstrap.js"></script>
+
+    <!--<script type="module" src="vehicles2.js"></script>-->
+    <script src="vehiclefactory.js"></script>
+
+
+    <script type="text/javascript">
+        System.import('vehicles2', {})
+                .then(function(module) {
+                    app.VehicleFactory.build({
+                        "car": module.Car,
+                        "truck": module.Truck
+                    });
+                });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

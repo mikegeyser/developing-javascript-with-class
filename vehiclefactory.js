@@ -14,10 +14,17 @@
                 var vehicle = new vehicles[vehicleType]();
 
                 // Add text to the DOM
-                var p = document.createElement('p');
-                p.className = vehicleType;
-                p.appendChild(document.createTextNode(vehicle.drive()));
-                document.body.appendChild(p);
+                var div = $(document.createElement('div'));
+                div.addClass(vehicleType);
+                div.text(vehicle.drive());
+
+                //$(".parking").prepend(div);
+                div.hide()
+                    .css('opacity', 0.0)
+                    .prependTo('.parking')
+                    .slideDown('slow')
+                    .animate({ opacity: 1.0 });
+
             }, 2000);
         }
     };
