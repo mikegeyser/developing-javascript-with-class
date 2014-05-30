@@ -10,3 +10,16 @@
         return "Vroooom!";
     }
 }
+
+class Car extends Vehicle
+{
+    constructor()
+    {
+        super("car");
+    }
+
+    drive()
+    {
+        return "Nyeeeeeow!";
+    }
+}
