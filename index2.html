@@ -2,50 +2,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
-    <!--<script src="vehicles.js"></script>-->
-    <script src="traceur.js"></script>
-    <script src="bootstrap.js"></script>
+    <link href="content/css/site.css" rel="stylesheet" />
+    <script src="lib/jquery-1.11.1.min.js"></script>
 
-    <script type="module">
-            export class Vehicle {
-                constructor() {
-                    console.log("Vehicle constructor called.");
-                }
+    <script src="lib/traceur.js"></script>
+    <script src="lib/bootstrap.js"></script>
 
-                drive()
-                {
-                    console.log("Vehicle drive called.");
+    <script src="vehiclefactory.js"></script>
 
-                    return "vroom!";
-                }
-            }
-
-            export class Car extends Vehicle
-            {
-                constructor() {
-                    console.log("Car constructor called.");
-
-                    super();
-                }
-
-                drive() {
-                    console.log("Car drive called.");
-
-                    return "Cars go " + super();
-                }
-            }
-        
-    </script>
-    
-    <script type="module">
-        import {Vehicle, Car} from 'Vehicles'
-
-        var car = new Vehicles.Car();
-        alert(car.drive());
-    
+    <script type="text/javascript">
+        System.import('vehicles2', {})
+            .then(function(module) {
+                app.VehicleFactory.build([
+                    module.Car,
+                    module.Truck,
+                    module.Scooter
+                ]);
+            });
     </script>
 </head>
 <body>
-
+    <div class="factory"></div>
+    <div class="parking"></div>
 </body>
 </html>

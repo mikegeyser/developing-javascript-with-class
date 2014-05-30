@@ -12,7 +12,7 @@
 
     // Car
     var car = function () {
-        app.Vehicle.call(this, ["car"]);
+        app.Vehicle.call(this, "car");
     };
 
     car.prototype = new app.Vehicle(); //eww
@@ -25,7 +25,7 @@
 
     // Truck
     var truck = function () {
-        app.Vehicle.call(this, ["truck"]);
+        app.Vehicle.call(this, "truck");
     }
 
     truck.prototype = new app.Vehicle();
@@ -38,7 +38,7 @@
 
     // Scooter
     var scooter = function () {
-        app.Vehicle.call(this, ["scooter"]);
+        app.Vehicle.call(this, "scooter");
     }
 
     scooter.prototype = new app.Vehicle();

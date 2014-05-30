@@ -1,21 +1,23 @@
 ﻿class Vehicle {
-    constructor() {
+    constructor(type)
+    {
+        this.type = type;
     }
 
     drive()
     {
-        return "vroooom!";
+        return "Vroooom!";
     }
 }
 
 class Car extends Vehicle
 {
     constructor() {
-        super();
+        super("car");
     }
 
     drive() {
-        return "Cars go " + super();
+        return "Nyeeeeeow!";
     }
 }
 
@@ -23,13 +25,26 @@ class Truck extends Vehicle
 {
     constructor()
     {
-        super();
+        super("truck");
     }
 
     drive()
     {
-        return "Trucks go " + super();
+        return super();
     }
 }
 
-export { Car, Truck }
+class Scooter extends Vehicle
+{
+    constructor()
+    {
+        super("scooter");
+    }
+
+    drive()
+    {
+        return "Meep. Meep.";
+    }
+}
+
+export { Car, Truck, Scooter }

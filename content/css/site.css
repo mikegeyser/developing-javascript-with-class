@@ -1,5 +1,6 @@
 ﻿body {
     margin-top: 100px;
+    font-family: "Arial Narrow";
 }
 
 div {
@@ -20,16 +21,24 @@ div {
 }
 
 .parking {
-    border: 0;
+    position: absolute;
+    top: 0px;
     box-shadow: 0 0 0;
+    border-radius: 0;
+    margin-left: 250px;
+    margin-top: 0;
+    padding-top: 100px;
+    min-height: 1000px;
+    width: 150px;
+    border: 0 solid black;
+    border-right: 2px solid;
+    border-left: 2px solid;
 }
 div.car,
 div.truck,
 div.scooter {
-    margin-left: 250px;
     width: 84px;
     height: 84px;
-    /*float: left;*/
 }
 
 .car {

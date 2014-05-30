@@ -9,11 +9,11 @@
     <script src="vehiclefactory.js"></script>
 
     <script type="text/javascript">
-        app.VehicleFactory.build({
-            "car": app.Car,
-            "truck": app.Truck,
-            "scooter": app.Scooter
-        });
+        app.VehicleFactory.build([
+            app.Car,
+            app.Truck,
+            app.Scooter
+        ]);
     </script>
 </head>
 <body>
