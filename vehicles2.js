@@ -23,3 +23,16 @@ class Car extends Vehicle
         return "Nyeeeeeow!";
     }
 }
+
+class Truck extends Vehicle
+{
+    constructor()
+    {
+        super("truck");
+    }
+
+    drive()
+    {
+        return super();
+    }
+}
